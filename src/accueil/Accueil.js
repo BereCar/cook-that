@@ -8,7 +8,7 @@ import {
     useRouteMatch,
     useParams
   } from "react-router-dom";
-  
+
 import ApercuRecette from './ApercuRecette'
 import { db } from '../firebase'
 import Recette from '../recette/Recette';
@@ -41,7 +41,7 @@ export default () => {
    
     return(
         
-        <div>
+        <div >
             {recettes.map(recette =>(
                 <>
                 <ApercuRecette
@@ -51,23 +51,14 @@ export default () => {
                     image = {recette.image}
                     difficulte = {recette.difficulte}
                     temps = {recette.temps}
+                    
 
                     
                 />
-                 <Link to={`${match.url}/recettes`}>Voir le détail</Link>
+                 <Link to={`/recettes/${recette.id}`}>Voir le détail</Link>
                  </>
                  
       ))}
-          
-
-            <Switch>
-        <Route path={`${match.path}/:recetteId`}>
-          <Recette />
-        </Route>
-        <Route path={match.path}>
-          <h3>Please select a recette.</h3>
-        </Route>
-      </Switch>
     
         </div>
        

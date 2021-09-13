@@ -9,19 +9,19 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
+import Recette from './recette/Recette';
 
 
 function App() {
   return (
     <Router>
     <div className="App">
-     <Accueil/>
-     <Switch>
-          <Route path="/">
+        <Route exact path="/">
             <Accueil />
           </Route>
-          
-        </Switch>
+          <Route exact path="/recettes/:id">
+            <Recette />
+          </Route>
     </div>
     </Router>
   );
