@@ -1,27 +1,54 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase'
 
 export default()=>{
+    const [recette, setRecette] = useState({})
     let  {id}  = useParams();
-    console.log( {id})
     let idRecette = id.toString();
-    console.log(idRecette)
+    useEffect(() => {         
     var docRef = db.collection("recettes").doc(idRecette);
+  
+        docRef.get().then((doc) => {
+        if (doc.exists) {
+            
+            setRecette (doc.data())
+            console.log(doc.data())
+       
+           console.log(typeof recette.ingredients)          
+        } else {
+           
+            alert("No such document!");
+        }
+    }).catch((error) => {
+        alert("Error getting document:", error);
+    })
+       
+    }, [])
+
+   const afficherIngredients = ()=>{
+       
+    return Object.entries(recette.ingredients).map(([nom, quantity]) =>    
+    console.log([nom, quantity])
+  //  <span>`${nom}: ${quantity}`</span>
+    )
     
- const data = docRef.get().then((doc) => {
-    if (doc.exists) {
-        return (data=  doc.data());
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-}).catch((error) => {
-    console.log("Error getting document:", error);
-});
+   }
+
+//    const afficherIngredients = () => {
+//        return Object.keys(recette.ingredients).map((item, index) => {
+//            return <span key= {index}> recette.ingredients[item]</span>
+//        })
+//    }
+
     return(
         <div>
-           <h1>La recette choisie: {id}  </h1>
+           <h1>La recette choisie: {recette.titre}  </h1>
+        <h3>Description</h3>
+        <p>{recette.description}</p>
+        <h3>Ingrédients</h3>
+       <span> {afficherIngredients}</span>
+
         </div>
          
        

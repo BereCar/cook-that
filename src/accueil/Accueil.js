@@ -12,6 +12,7 @@ import {
 import ApercuRecette from './ApercuRecette'
 import { db } from '../firebase'
 import Recette from '../recette/Recette';
+import {Box, Container} from '@material-ui/core'
 
 
 export default () => {
@@ -41,7 +42,8 @@ export default () => {
    
     return(
         
-        <div >
+        <Container maxwidth="lg" >
+       <h1>Nos dernières recettes  </h1>
             {recettes.map(recette =>(
                 <>
                 <ApercuRecette
@@ -60,7 +62,7 @@ export default () => {
                  
       ))}
     
-        </div>
+        </Container>
        
     )
 }
