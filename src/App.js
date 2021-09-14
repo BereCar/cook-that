@@ -10,20 +10,23 @@ import {
   useParams
 } from "react-router-dom";
 import Recette from './recette/Recette';
+import Menu from './Menu'
 
 
 function App() {
   return (
-    <Router>
     <div className="App">
+    <Router>
+   
         <Route exact path="/">
             <Accueil />
           </Route>
           <Route exact path="/recettes/:id">
             <Recette />
-          </Route>
+          </Route>     
+        </Router>
+    <Menu/>
     </div>
-    </Router>
   );
 }
 
