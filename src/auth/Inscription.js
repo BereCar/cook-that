@@ -53,8 +53,8 @@ export default () => {
       }
 
       if (!/^[^@]+@[^.]+\.[a-zA-Z0-9]+/.test(emailField.value)) {
-        setEmailField(e) ({
-          value: passwordField.e.target.value,
+        setEmailField ({
+          value: emailField.value,
           error: 'Vous devez renseigner un email valide',
         })
 
@@ -78,13 +78,19 @@ export default () => {
       }
 
       if (!confirmPasswordField.value) {
-        onEmailChange
+        setPasswordField({
+          value: passwordField.value,
+          error: 'Vous devez confirmer un mot de passe',
+        })
 
         valid = false
       }
 
       if (passwordField.value !== confirmPasswordField.value) {
-        setFormError('Vos deux mots de passe doivent correspondre')
+        setPasswordField({
+          value: passwordField.value,
+          error: 'mdm et confim ne sont pas le meme',
+        })
 
         valid = false
       }
@@ -182,11 +188,18 @@ export default () => {
         />
       </div>
       {step === SENDING_STEPS.NONE ? (
-        <button onClick={() => setStep(SENDING_STEPS.VALIDATION)} />
+      <div>
+        {!!formError && <p>{formError}</p>}
+        
+        <button  
+        onClick={() => {
+        setStep(SENDING_STEPS.VALIDATION)
+      }}>  S'inscrire </button>
+      </div>
       ) : (
-        //<Loading step={step} />
-        <p>En train d'envoyer</p>
+        <p>en train d'envoyer</p>
       )}
     </div>
+    
   )
 }
