@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Recette from './recette/Recette';
 import Menu from './Menu'
+import Inscription from './auth/Inscription';
 
 
 function App() {
@@ -23,9 +24,12 @@ function App() {
           </Route>
           <Route exact path="/recettes/:id">
             <Recette />
-          </Route>     
+          </Route>
+          <Route exact path="/inscription" component={Inscription}/>    
+          <Menu/>     
         </Router>
-    <Menu/>
+      
+   
     </div>
   );
 }
