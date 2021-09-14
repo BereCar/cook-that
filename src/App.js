@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Recette from './recette/Recette';
 import Menu from './Menu'
+import Login from './auth/Login';
 import Inscription from './auth/Inscription';
 
 
@@ -25,7 +26,8 @@ function App() {
           <Route exact path="/recettes/:id">
             <Recette />
           </Route>
-          <Route exact path="/inscription" component={Inscription}/>    
+          <Route exact path="/login" component={Login}/>  
+          <Route exact path="/inscription" component={Inscription}/>  
           <Menu/>     
         </Router>
       

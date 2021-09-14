@@ -40,7 +40,7 @@ const useStyles = makeStyles({
         <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
         <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
         <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
-        <a href="/inscription">
+        <a href="/login">
         <BottomNavigationAction label="Login" value="login"  icon={<PersonIcon />} />
         </a>
       
