@@ -13,6 +13,7 @@ import Recette from './recette/Recette';
 import Menu from './Menu'
 import Login from './auth/Login';
 import Inscription from './auth/Inscription';
+import CreerRecette from './recette/CreerRecette';
 
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
    
         <Route exact path="/">
             <Accueil />
+          </Route>
+          <Route exact path="/creer">
+            <CreerRecette />
           </Route>
           <Route exact path="/recettes/:id">
             <Recette />
