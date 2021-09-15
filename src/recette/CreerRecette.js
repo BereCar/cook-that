@@ -8,7 +8,7 @@ import SendIcon from '@material-ui/icons/Send';
 import UploadImage from './UploadImage';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase'
-import { Button, Fab, TextField,Icon,IconButton,Tooltip , Divider } from '@material-ui/core'
+import { Button, Fab, TextField,Icon,IconButton,Tooltip , Divider,Container } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
     divider: {
@@ -28,17 +28,31 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default()=>{
-
     const [titre, setTitre]= useState('')
     const [errorTitre, setErrorTitre] = React.useState(false);
     const [errorDescrib, setErrorDescrib] = React.useState(false);
     const [describ, setDescrib] = useState('')
+    const [ingredients, setIngredients] = useState([])
+    const [nbIngredient, setNbIngredient] = useState(0)
     const [pictureRecette, setPictureRecette] = useState('')
-    
 
 
     const classes = useStyles();
+    useEffect(() => {   
+        const oneIngredient = setIngredients(baliseIngredient()) ;
+    }, []);
 
+
+    const addOneIngredient = () => {
+        setIngredients(ingredients+baliseIngredient());
+    }
+    const baliseIngredient = () => {
+        setNbIngredient(nbIngredient+1);
+
+        return  <TextField required id="standard-required" className={nbIngredient} label="ingredient" value={ingredients[nbIngredient]} defaultValue={ingredients[nbIngredient]}
+         placeholder="Titre de la recette"
+        />
+    }
     return (
         <div>
             <h2>Création d'une nouvelle recette</h2>
@@ -52,16 +66,24 @@ export default()=>{
         />
    <Divider className={classes.divider}/>
    
+   <label className={classes.label}>Ingredient(s) : </label>
+   <Container fixed>
+       <div id="ingredients">{ingredients}</div>
     <Tooltip title="Delete">
         <IconButton aria-label="delete">
           <DeleteIcon />
         </IconButton>
       </Tooltip>
-      <Tooltip title="Add" aria-label="add">
+      <Tooltip title="Add" aria-label="add" 
+      onClick={()=>{addOneIngredient()}}
+      >
         <Fab color="primary" className={classes.fab}>
           <AddIcon />
         </Fab>
       </Tooltip>
+    </Container>
+
+
       <Divider className={classes.divider}/>
       <UploadImage/>
       <Button
