@@ -17,11 +17,13 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonIcon from '@material-ui/icons/Person';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import Inscription from './auth/Inscription'
+import { StayPrimaryLandscapeOutlined } from '@material-ui/icons';
 
 
 const useStyles = makeStyles({
     root: {
-      width: 500,
+     backgroundColor: '#E1F4CB',
+     position:'inherit',
     },
   });
   

@@ -36,3 +36,39 @@
     transform: rotate(360deg);
   }
 }
+.imgRecetteAccueil {
+  max-width: 450px;
+  min-width: 150px;
+}
+.containerAccueil {
+  background-color: #f1bf98;
+}
+.linkToDetail {
+  text-decoration: none;
+  font-style: oblique;
+  font-size: 25px;
+  color: rgb(6, 6, 56);
+}
+.cardApercuRecette {
+  margin-top: 200px;
+  margin-bottom: 30px;
+}
+.btnLogin {
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+.inputForm {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin: 15px, 30px;
+}
+.labelForm {
+  margin-right: 30px;
+}
+.login {
+  margin-top: 40px;
+  padding: 20px, 30px;
+}

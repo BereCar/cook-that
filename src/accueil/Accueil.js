@@ -42,7 +42,7 @@ export default () => {
    
     return(
         
-        <Container maxwidth="lg" >
+        <Container maxwidth="lg" className="containerAccueil" >
        <h1>Nos dernières recettes  </h1>
             {recettes.map(recette =>(
                 <>
@@ -57,7 +57,7 @@ export default () => {
 
                     
                 />
-                 <Link to={`/recettes/${recette.id}`}>Voir le détail</Link>
+                 <Link to={`/recettes/${recette.id}`} className="linkToDetail">Voir le détail</Link>
                  </>
                  
       ))}
