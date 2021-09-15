@@ -72,3 +72,7 @@
   margin-top: 40px;
   padding: 20px, 30px;
 }
+.arrowBack {
+  float: left !important;
+  width: 30px;
+}

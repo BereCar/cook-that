@@ -54,8 +54,6 @@ export default () => {
                     difficulte = {recette.difficulte}
                     temps = {recette.temps}
                     
-
-                    
                 />
                  <Link to={`/recettes/${recette.id}`} className="linkToDetail">Voir le détail</Link>
                  </>

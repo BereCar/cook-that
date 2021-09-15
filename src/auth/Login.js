@@ -2,8 +2,16 @@ import React, { useEffect, useState, useContext} from 'react'
 import { Button } from '@material-ui/core'
 import { auth } from '../firebase'
 import { Redirect } from 'react-router'
+import { makeStyles } from '@material-ui/core/styles';
+import { spacing } from '@material-ui/system';
 import IsConnectedContext from '../IsConnectedContext'
 
+const useStyles = makeStyles({
+  btnLogin: {
+   marginTop: '30px',
+  
+  }
+});
 
 export default ()=>{
 
@@ -88,12 +96,12 @@ export default ()=>{
         <p></p>}
       </div>
 
-      <Button variant="contained" color="primary" size="large" paddingTop={2} className="btnLogin"  onClick={()=>{setSending(true)}} >Connection</Button>
+      <Button variant="contained" color="primary" size="large" paddingTop={2} className="btnLogin" my={2}  onClick={()=>{setSending(true)}} >Connection</Button>
 
       </form>
 
       <a href='/inscription'>
-      <Button variant="outlined" color="primary" size="large" className="btnLogin" paddingTop={2}
+      <Button variant="outlined" color="primary" size="large" className="btnLogin" my={2} paddingTop={2}
       >Créer un compte</Button>
       </a>
 

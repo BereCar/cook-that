@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase'
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 export default()=>{
     const [recette, setRecette] = useState({})
@@ -45,6 +46,7 @@ export default()=>{
 
     return(
         <div>
+       <span classname='arrowBack'> <a href='/'><ArrowBackIcon/></a></span>
         <h1>La recette choisie: {recette.titre}  </h1>
         <img src={recette.image}/>
         <span>{recette.temps} - {recette.difficulte}  - {recette.cout} - </span>

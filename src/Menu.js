@@ -9,13 +9,16 @@ import {
   } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
+import Logo from './pictures/logo.svg';
 
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import FolderIcon from '@material-ui/icons/Folder';
-import RestoreIcon from '@material-ui/icons/Restore';
+import FastfoodIcon from '@material-ui/icons/Fastfood';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonIcon from '@material-ui/icons/Person';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
+
+import HomeIcon from '@material-ui/icons/Home';
+import AddIcon from '@material-ui/icons/Add';
+
 import Inscription from './auth/Inscription'
 import { StayPrimaryLandscapeOutlined } from '@material-ui/icons';
 
@@ -23,8 +26,11 @@ import { StayPrimaryLandscapeOutlined } from '@material-ui/icons';
 const useStyles = makeStyles({
     root: {
      backgroundColor: '#E1F4CB',
-     position:'inherit',
-    },
+     position:'fixed',
+     bottom : 0,
+     width: ' 100%',
+    
+    }
   });
   
   export default function LabelBottomNavigation() {
@@ -38,10 +44,14 @@ const useStyles = makeStyles({
     return (
         <Router>
       <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      <a href="/">
+        <BottomNavigationAction label="Accueil" value="accueil" icon={<HomeIcon />} />
+        </a>
+        <a href="">
+        <BottomNavigationAction label="Ajout recette" value="ajoutRecette" icon={<AddIcon />} />
+        </a>
+        <BottomNavigationAction label="CookThat" value="cookThat" icon={<FastfoodIcon/>}/>
+        <BottomNavigationAction label="Mes recettes" value="mesRecettes" icon={<FavoriteIcon />} />
         <a href="/login">
         <BottomNavigationAction label="Login" value="login"  icon={<PersonIcon />} />
         </a>
