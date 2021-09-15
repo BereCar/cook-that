@@ -16,6 +16,7 @@ import Inscription from './auth/Inscription';
 import CreerRecette from './recette/CreerRecette';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/recettes/:id">
             <Recette />
           </Route>
+          <Route exact path="/add-recette" component={CreerRecette}/>
           <Route exact path="/login" component={Login}/>  
           <Route exact path="/inscription" component={Inscription}/>  
           <Menu/>     

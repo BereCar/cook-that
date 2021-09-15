@@ -5,6 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import DeleteIcon from '@material-ui/icons/Delete';
 import SendIcon from '@material-ui/icons/Send';
 
+import UploadImage from './UploadImage';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebase'
 import { Button, Fab, TextField,Icon,IconButton,Tooltip , Divider } from '@material-ui/core'
@@ -33,9 +34,11 @@ export default()=>{
     const [errorDescrib, setErrorDescrib] = React.useState(false);
     const [describ, setDescrib] = useState('')
     const [pictureRecette, setPictureRecette] = useState('')
+    
 
 
     const classes = useStyles();
+
     return (
         <div>
             <h2>Création d'une nouvelle recette</h2>
@@ -60,6 +63,7 @@ export default()=>{
         </Fab>
       </Tooltip>
       <Divider className={classes.divider}/>
+      <UploadImage/>
       <Button
         variant="contained"
         color="primary"

@@ -47,7 +47,7 @@ const useStyles = makeStyles({
       <a href="/">
         <BottomNavigationAction label="Accueil" value="accueil" icon={<HomeIcon />} />
         </a>
-        <a href="">
+        <a href="/add-recette">
         <BottomNavigationAction label="Ajout recette" value="ajoutRecette" icon={<AddIcon />} />
         </a>
         <BottomNavigationAction label="CookThat" value="cookThat" icon={<FastfoodIcon/>}/>
